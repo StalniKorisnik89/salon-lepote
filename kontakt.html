@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kontaktirajte Salon Lepote - adresa, telefon, email i radno vreme. Tu smo da odgovorimo na sva vaša pitanja.">
+    <meta name="keywords" content="kontakt salon za nokte, adresa, telefon, radno vreme">
+    <title>Kontakt - Salon Lepote</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="brand-icon">🌸</span>
+                <span class="brand-name">Salon Lepote</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Početna</a></li>
+                <li><a href="usluge.html">Usluge</a></li>
+                <li><a href="galerija.html">Galerija</a></li>
+                <li><a href="zakazivanje.html">Zakazivanje</a></li>
+                <li><a href="kontakt.html" class="active">Kontakt</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Kontaktirajte nas</h1>
+            <p class="page-subtitle">Tu smo da odgovorimo na sva vaša pitanja</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Kontakt informacije</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Adresa</h3>
+                            <p>Beograd, Srbija<br>Glavna ulica 123</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3>Telefon</h3>
+                            <p>+381 60 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>info@salonlepote.rs</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div class="contact-details">
+                            <h3>Radno vreme</h3>
+                            <p>Ponedeljak - Petak: 09:00 - 19:00<br>
+                               Subota: 09:00 - 17:00<br>
+                               Nedelja: Zatvoreno</p>
+                        </div>
+                    </div>
+                    <div class="contact-cta">
+                        <a href="zakazivanje.html" class="btn btn-primary">Zakaži termin</a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h2>Pošaljite nam poruku</h2>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="contactName">Ime i prezime *</label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactEmail">Email *</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactPhone">Telefon</label>
+                            <input type="tel" id="contactPhone" name="contactPhone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMessage">Poruka *</label>
+                            <textarea id="contactMessage" name="contactMessage" rows="6" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Pošalji poruku</button>
+                        <div id="contactMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Salon Lepote</h3>
+                    <p>Vaša lepota je naš prioritet</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Brzi linkovi</h4>
+                    <ul>
+                        <li><a href="index.html">Početna</a></li>
+                        <li><a href="usluge.html">Usluge</a></li>
+                        <li><a href="galerija.html">Galerija</a></li>
+                        <li><a href="zakazivanje.html">Zakazivanje</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>📞 +381 60 123 4567</p>
+                    <p>✉️ info@salonlepote.rs</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Salon Lepote. Sva prava zadržana.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
