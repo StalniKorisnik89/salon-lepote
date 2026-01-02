@@ -1,13 +1,13 @@
 # Salon Lepote - Web Sajt za Salon za Nokte
 
-Moderan, responzivan web sajt za salon za nokte sa Google Calendar integracijom za online zakazivanje termina.
+Moderan, responzivan web sajt za salon za nokte sa Google Calendar Appointment Schedule integracijom za online zakazivanje termina.
 
 ## 🌸 Funkcionalnosti
 
 - **Početna strana** - Hero sekcija, opis salona, preview usluga
 - **Usluge** - Detaljna lista svih usluga sa opisima
 - **Galerija** - Elegantna galerija sa lightbox modalom
-- **Zakazivanje termina** - Forma za rezervaciju sa Google Calendar integracijom
+- **Zakazivanje termina** - Link ka Google Calendar Appointment Schedule za jednostavno zakazivanje
 - **Kontakt** - Kontakt informacije i kontakt forma
 
 ## 🎨 Dizajn
@@ -24,8 +24,7 @@ Moderan, responzivan web sajt za salon za nokte sa Google Calendar integracijom 
 - **HTML5** - Semantička struktura
 - **CSS3** - Moderni stilovi sa CSS varijablama i animacijama
 - **JavaScript (Vanilla)** - Interaktivnost bez framework-a
-- **Google Calendar API** - Integracija za zakazivanje termina
-- **Google Identity Services** - OAuth 2.0 autentifikacija
+- **Google Calendar Appointment Schedules** - Integracija za zakazivanje termina
 
 ## 📁 Struktura Projekta
 
@@ -35,7 +34,7 @@ salon-lepote/
 ├── index.html          # Početna strana
 ├── usluge.html         # Strana sa uslugama
 ├── galerija.html       # Galerija radova
-├── zakazivanje.html    # Forma za zakazivanje
+├── zakazivanje.html    # Link ka Google Calendar Appointment Schedule
 ├── kontakt.html        # Kontakt strana
 │
 ├── css/
@@ -43,11 +42,7 @@ salon-lepote/
 │
 ├── js/
 │   ├── main.js         # Glavna JavaScript logika
-│   ├── gallery.js      # Galerija i lightbox funkcionalnost
-│   └── calendar.js     # Google Calendar integracija
-│
-├── config/
-│   └── config.js       # Konfiguracija API ključeva
+│   └── gallery.js      # Galerija i lightbox funkcionalnost
 │
 ├── images/             # Slike (placeholder slike za galeriju)
 │
@@ -58,9 +53,7 @@ salon-lepote/
 
 1. **Klonirajte ili preuzmite projekat**
 
-2. **Otvorte `config/config.js` i dodajte vaše Google API kredencijale** (vidi sekciju ispod)
-
-3. **Otvorte `index.html` u web browseru** ili koristite lokalni server:
+2. **Otvorte `index.html` u web browseru** ili koristite lokalni server:
    ```bash
    # Koristeći Python
    python -m http.server 8000
@@ -69,81 +62,40 @@ salon-lepote/
    npx http-server
    ```
 
-4. **Pristupite sajtu na:** `http://localhost:8000`
+3. **Pristupite sajtu na:** `http://localhost:8000`
 
-## 📅 Google Calendar Integracija - Uputstvo
+## 📅 Google Calendar Appointment Schedule Setup
 
-Za funkcionalnost zakazivanja termina, potrebno je podesiti Google Calendar API.
+Za funkcionalnost zakazivanja termina, potrebno je da kreirate Google Calendar Appointment Schedule:
 
-### Korak 1: Kreiranje Google Cloud Projekta
+### Korak 1: Kreiranje Appointment Schedule-a
 
-1. Idite na [Google Cloud Console](https://console.cloud.google.com/)
-2. Kliknite na "New Project" ili izaberite postojeći projekat
-3. Unesite ime projekta (npr. "Salon Lepote Calendar")
-4. Kliknite "Create"
+1. Idite na [Google Calendar](https://calendar.google.com/)
+2. Kliknite na "Create" > "Appointment schedule"
+3. Podesite:
+   - Naziv schedule-a (npr. "Salon Lepote - Zakazivanje")
+   - Opis usluge
+   - Dostupne termine (radno vreme)
+   - Trajanje termina (npr. 60 minuta za manikir)
+   - Buffer vreme između termina
 
-### Korak 2: Omogućavanje Google Calendar API
+4. Kliknite "Save" i kopirajte link ka schedule-u
 
-1. U Google Cloud Console, idite na **"APIs & Services" > "Library"**
-2. Pretražite "Google Calendar API"
-3. Kliknite na "Google Calendar API" i zatim kliknite **"Enable"**
+### Korak 2: Dodavanje Linka u Sajt
 
-### Korak 3: Kreiranje OAuth 2.0 Credentials
+1. Otvorite `zakazivanje.html`
+2. Pronađite link sa placeholder vrednošću:
+   ```html
+   <a href="https://calendar.google.com/calendar/appointments/schedules/XXXXXXXX" ...>
+   ```
+3. Zamenite `XXXXXXXX` sa stvarnim ID-jem vašeg Appointment Schedule-a
 
-1. Idite na **"APIs & Services" > "Credentials"**
-2. Kliknite **"Create Credentials"** > **"OAuth client ID"**
-3. Ako se pojavi poruka, kliknite **"Configure Consent Screen"**:
-   - Izaberite **"External"** (za test mode)
-   - Popunite obavezna polja:
-     - App name: Salon Lepote
-     - User support email: vaš email
-     - Developer contact information: vaš email
-   - Kliknite "Save and Continue" za sledeće korake (opciono)
-   - Na kraju kliknite "Back to Dashboard"
+### Primer Linka
 
-4. Sada kreirajte OAuth 2.0 Client ID:
-   - Application type: **"Web application"**
-   - Name: Salon Lepote Web Client
-   - Authorized JavaScript origins:
-     - Za lokalni razvoj: `http://localhost:8000`, `http://127.0.0.1:8000`
-     - Za GitHub Pages: `https://yourusername.github.io`
-   - Authorized redirect URIs: (ostavite prazno ili dodajte `http://localhost:8000`)
-
-5. Kliknite **"Create"**
-6. Kopirajte **Client ID** (ne Client Secret - ne treba nam)
-
-### Korak 4: Kreiranje API Key
-
-1. U **"Credentials"** sekciji, kliknite **"Create Credentials"** > **"API key"**
-2. Kopirajte generisani **API Key**
-
-### Korak 5: Konfiguracija config.js
-
-Otvorite `config/config.js` i zamenite placeholder vrednosti:
-
-```javascript
-const CONFIG = {
-    GOOGLE_CLIENT_ID: 'VAŠ_CLIENT_ID_OVDE',
-    GOOGLE_API_KEY: 'VAŠ_API_KEY_OVDE',
-    SCOPES: 'https://www.googleapis.com/auth/calendar',
-    CALENDAR_ID: 'primary', // ili vaš calendar ID
-    TIMEZONE: 'Europe/Belgrade'
-};
+Link će izgledati otprilike ovako:
 ```
-
-### Korak 6: Testiranje
-
-1. Otvorite `zakazivanje.html` u browseru
-2. Prijavite se na Google Calendar kada se pojavi dugme
-3. Popunite formu za zakazivanje
-4. Termin će biti dodat u vaš Google Calendar
-
-### ⚠️ Važne Napomene
-
-- **Test Mode**: OAuth 2.0 aplikacija je u "Testing" modu, što znači da samo vaš Google nalog može da pristupa aplikaciji
-- **Produkcija**: Za produkciju, potrebno je odobriti aplikaciju kroz Google OAuth Consent Screen
-- **API Key Restriction**: Preporučeno je da ograničite API Key samo na Google Calendar API u Google Cloud Console
-- **Client ID Restriction**: Možete ograničiti Client ID na određene domenine u Google Cloud Console
+https://calendar.google.com/calendar/appointments/schedules/AcZhssWt3k...
+```
 
 ## 📱 GitHub Pages Deployment
 
@@ -167,27 +119,14 @@ Za hostovanje na GitHub Pages:
    - Izaberite folder (/root)
    - Kliknite Save
 
-4. **Ažurirajte Google OAuth Credentials**:
-   - U Google Cloud Console, dodajte `https://yourusername.github.io` u Authorized JavaScript origins
+4. **Sajt će biti dostupan na:** `https://yourusername.github.io/salon-lepote/`
 
-5. **Ažurirajte config.js** (opciono - možete koristiti environment variables ili drugi pristup za produkciju)
+## 🎯 Funkcionalnosti Zakazivanja
 
-## 🔒 Bezbednost
-
-- **API ključevi**: Za produkciju, razmotrite korišćenje environment variables ili backend servera
-- **CORS**: Google Calendar API zahteva da domen bude dodat u Authorized JavaScript origins
-- **OAuth Token**: Tokeni se čuvaju u browser storage - korisnik može da se odjavi kada želi
-
-## 🎯 Funkcionalnosti Forme za Zakazivanje
-
-- Validacija svih polja (ime, telefon, datum, vreme)
-- Provera konflikata - sistem proverava da li već postoji termin u tom vremenskom periodu
-- Automatsko kreiranje događaja u Google Calendar-u
-- Događaj sadrži:
-  - Naslov: "Termin – Ime Prezime"
-  - Opis: Broj telefona, usluga, napomene
-  - Datum i vreme iz forme
-  - Vremenska zona: Europe/Belgrade
+- **Jednostavno zakazivanje** - Korisnici klikom na dugme otvaraju Google Calendar Appointment Schedule
+- **Pregled dostupnih termina** - Real-time prikaz dostupnih termina
+- **Automatska potvrda** - Google Calendar automatski šalje potvrdu rezervacije
+- **Bez potrebe za prijavom** - Korisnici se ne moraju prijavljivati na sajt
 
 ## 📝 Licenca
 
@@ -199,4 +138,4 @@ Za pitanja ili probleme, kontaktirajte razvojni tim.
 
 ---
 
-**Napomena**: Ovo je frontend-only aplikacija. Za produkciju sa većim brojem korisnika, razmotrite dodavanje backend servera za bolju bezbednost i upravljanje API ključevima.
+**Napomena**: Ovaj sajt koristi statičke fajlove i Google Calendar Appointment Schedules za zakazivanje. Nije potreban backend server ili API ključevi - sve funkcioniše putem jednostavnog linka ka Google Calendar-u.

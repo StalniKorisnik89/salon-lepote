@@ -10,8 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -40,91 +38,56 @@
     <section class="page-header">
         <div class="container">
             <h1 class="page-title">Zakažite svoj termin</h1>
-            <p class="page-subtitle">Ispunite formu i potvrdite svoju rezervaciju</p>
+            <p class="page-subtitle">Izaberite termin koji vam odgovara</p>
         </div>
     </section>
 
-    <!-- Booking Form Section -->
+    <!-- Booking Section -->
     <section class="booking-section">
         <div class="container">
-            <div class="booking-wrapper">
-                <div class="booking-info">
-                    <h2>Vaš termin čeka</h2>
-                    <p>Popunite formu sa vašim podacima i željenim terminom. Kontaktiraćemo vas za potvrdu rezervacije.</p>
-                    <div class="info-cards">
-                        <div class="info-card">
-                            <div class="info-icon">📅</div>
-                            <h3>Fleksibilni termini</h3>
-                            <p>Izaberite datum i vreme koje vam odgovara</p>
+            <div class="booking-wrapper-simple">
+                <div class="booking-card">
+                    <div class="booking-card-icon">📅</div>
+                    <h2>Online Zakazivanje</h2>
+                    <p class="booking-description">Izaberite termin koji vam odgovara putem našeg online kalendara. Pregledajte dostupne termine i rezervišite svoj termin u nekoliko jednostavnih koraka.</p>
+                    
+                    <div class="booking-features">
+                        <div class="booking-feature">
+                            <span class="feature-icon">✨</span>
+                            <span>Pregled dostupnih termina u realnom vremenu</span>
                         </div>
-                        <div class="info-card">
-                            <div class="info-icon">⏰</div>
-                            <h3>Brza potvrda</h3>
-                            <p>Potvrda rezervacije u roku od 24 sata</p>
+                        <div class="booking-feature">
+                            <span class="feature-icon">⏰</span>
+                            <span>Fleksibilno zakazivanje 24/7</span>
                         </div>
-                        <div class="info-card">
-                            <div class="info-icon">💝</div>
-                            <h3>Lični pristup</h3>
-                            <p>Svaki klijent dobija posebnu pažnju</p>
+                        <div class="booking-feature">
+                            <span class="feature-icon">💝</span>
+                            <span>Automatska potvrda rezervacije</span>
                         </div>
                     </div>
+
+                    <a href="https://calendar.google.com/calendar/appointments/schedules/XXXXXXXX" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="btn btn-primary btn-booking">
+                        Zakaži termin
+                    </a>
                 </div>
 
-                <div class="booking-form-container">
-                    <form id="bookingForm" class="booking-form">
-                        <div class="form-group">
-                            <label for="fullName">Ime i prezime *</label>
-                            <input type="text" id="fullName" name="fullName" required>
-                            <span class="error-message" id="fullNameError"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Broj telefona *</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+381 60 123 4567" required>
-                            <span class="error-message" id="phoneError"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="date">Datum *</label>
-                            <input type="date" id="date" name="date" required>
-                            <span class="error-message" id="dateError"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="time">Vreme *</label>
-                            <input type="time" id="time" name="time" required>
-                            <span class="error-message" id="timeError"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="service">Usluga (opciono)</label>
-                            <select id="service" name="service">
-                                <option value="">Izaberite uslugu</option>
-                                <option value="Klasičan Manikir">Klasičan Manikir</option>
-                                <option value="Gel Manikir">Gel Manikir</option>
-                                <option value="Klasičan Pedikir">Klasičan Pedikir</option>
-                                <option value="Gel Pedikir">Gel Pedikir</option>
-                                <option value="Nail Art Dizajn">Nail Art Dizajn</option>
-                                <option value="VIP Paket">VIP Paket</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="notes">Napomene (opciono)</label>
-                            <textarea id="notes" name="notes" rows="4" placeholder="Dodatne informacije ili posebne želje..."></textarea>
-                        </div>
-
-                        <div id="googleAuthContainer" class="google-auth-container" style="display: none;">
-                            <p>Za zakazivanje termina potrebno je da se prijavite na Google Calendar:</p>
-                            <div id="googleSignInButton"></div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-submit" id="submitButton">
-                            Zakaži termin
-                        </button>
-
-                        <div id="formMessage" class="form-message"></div>
-                    </form>
+                <div class="booking-info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <h3>Potrebna pomoć?</h3>
+                        <p>Ako imate pitanja ili vam treba dodatna pomoć, slobodno nas kontaktirajte.</p>
+                        <a href="kontakt.html" class="btn btn-secondary btn-small">Kontaktirajte nas</a>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🕐</div>
+                        <h3>Radno vreme</h3>
+                        <p>Ponedeljak - Petak: 09:00 - 19:00<br>
+                           Subota: 09:00 - 17:00<br>
+                           Nedelja: Zatvoreno</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -159,8 +122,6 @@
         </div>
     </footer>
 
-    <script src="config/config.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/calendar.js"></script>
 </body>
 </html>

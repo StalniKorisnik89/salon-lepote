@@ -698,6 +698,87 @@ h1, h2, h3, h4 {
     margin: 0 auto;
 }
 
+.booking-wrapper-simple {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.booking-card {
+    background: var(--color-cream);
+    padding: 3rem;
+    border-radius: 25px;
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.booking-card:hover {
+    border-color: var(--color-lavender);
+    box-shadow: var(--shadow-strong);
+}
+
+.booking-card-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.booking-card h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+}
+
+.booking-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+}
+
+.booking-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
+}
+
+.booking-feature {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--color-white);
+    border-radius: 15px;
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.btn-booking {
+    width: 100%;
+    padding: 1.3rem 2.5rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.booking-info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
 .booking-info h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -831,23 +912,11 @@ h1, h2, h3, h4 {
     border: 1px solid #f5c6cb;
 }
 
-.google-auth-container {
-    background: var(--color-white);
-    padding: 1.5rem;
-    border-radius: 15px;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    border: 2px solid var(--color-nude);
-}
-
-.google-auth-container p {
-    margin-bottom: 1rem;
-    color: var(--color-text);
-}
-
-#googleSignInButton {
-    display: flex;
-    justify-content: center;
+.btn-small {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    display: inline-block;
 }
 
 /* ===================================
@@ -1031,6 +1100,7 @@ h1, h2, h3, h4 {
 
     .about-content,
     .booking-wrapper,
+    .booking-wrapper-simple,
     .contact-wrapper {
         grid-template-columns: 1fr;
     }
